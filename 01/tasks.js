@@ -67,10 +67,6 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-
-  // let elem = function *generate(){
-
-  // }
   const rows = Math.ceil(max / cols);
   let result = '';
   let elem = 0;
