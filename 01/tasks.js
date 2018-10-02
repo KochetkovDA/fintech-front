@@ -67,6 +67,10 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
+
+  // let elem = function *generate(){
+
+  // }
   const rows = Math.ceil(max / cols);
   let result = '';
   let elem = 0;
@@ -75,23 +79,13 @@ function printNumbers(max, cols) {
     for (let j = 0; j < cols; j++) {
       elem = i + (j * rows);
       if (elem >= max) {
-        if (elem < 10) {
-          return result += ` ${elem}`;
-        }
-        return result += `${elem}`;
+          return result += `${elem}`.padStart(2);
       }
-      if (elem < 10) {
-        switch (j) {
-          case cols - 1:
-            result += ` ${elem}`;
-            break;
-          default:
-            result += ` ${elem} `;
-            break;
+      if (j === (cols - 1)) {
+            result += `${elem}`.padStart(2);
+            continue;
         }
-        continue;
-      }
-      result += `${elem}`;
+      result += `${elem}`.padStart(2) +' ';
     }
     result += '\n';
   }
