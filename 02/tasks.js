@@ -34,7 +34,7 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-  return a => func.apply(context, args.concat(a));
+  return (...a) => func.apply(context, args.concat(a));
 }
 
 /*= ============================================ */
@@ -83,14 +83,20 @@ function anagram(first, second) {
  * @param {Array<number>} исходный массив
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
+// function getUnique(arr) {
+//   const tmpObj = {};
+
+//   arr.sort().forEach(elem => {
+//     tmpObj[elem] = '';
+//   });
+
+//   return Object.keys(tmpObj);
+// }
+
 function getUnique(arr) {
-  const tmpObj = {};
+  const set = new Set(arr);
 
-  arr.sort().forEach(elem => {
-    tmpObj[elem] = '';
-  });
-
-  return Object.keys(tmpObj);
+  return Array.from(set).sort();
 }
 
 /**
