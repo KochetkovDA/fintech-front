@@ -9,7 +9,7 @@ function promiseAll(promises) {
   const promisesResult = [];
   let resolvedPromises = 0;
 
-  return new Promise(((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     promises.forEach((promise, i) => {
       promise.then(ret => {
         promisesResult[i] = ret;
@@ -21,7 +21,7 @@ function promiseAll(promises) {
         reject(error);
       });
     });
-  }));
+  });
 }
 
 module.exports = promiseAll;
