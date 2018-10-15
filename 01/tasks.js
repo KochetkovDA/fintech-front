@@ -81,7 +81,7 @@ function printNumbers(max, cols) {
         result += `${elem}`.padStart(2);
         continue;
       }
-      result += `${elem}`.padStart(2) + ' ';
+      result += `${`${elem}`.padStart(2)} `;
     }
     result += '\n';
   }

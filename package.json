@@ -8,7 +8,7 @@
     "lint": "eslint */*.js",
     "lint-css": "stylelint *.less",
     "lint-html": " ",
-    "unit-tests": "mocha --reporter=spec */test.js"
+    "unit-tests": "mocha --reporter=spec \"./{,!(node_modules)/**/}test.js\""
   },
   "husky": {
     "hooks": {

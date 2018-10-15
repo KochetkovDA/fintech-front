@@ -1,7 +1,7 @@
 const expect = require('expect.js');
 const { timer, customBind, sum, anagram, getUnique, getIntersection, isIsomorphic } = require('./tasks');
 
-describe('Lesson 2', () => {
+xdescribe('Lesson 2', () => {
   describe('timer', () => {
     /* eslint max-nested-callbacks: ["error", 4] */
     // не бейте! Eslint не давал пушить без этого правила(
@@ -11,6 +11,7 @@ describe('Lesson 2', () => {
 
       timer(logger);
       setTimeout(() => {
+        /* eslint max-nested-callbacks: ["error", 4] */
         expect(result).to.eql(new Array(10).fill(10).map((_, i) => i));
         done();
       }, 1000);
