@@ -3,6 +3,8 @@ const { timer, customBind, sum, anagram, getUnique, getIntersection, isIsomorphi
 
 xdescribe('Lesson 2', () => {
   describe('timer', () => {
+    /* eslint max-nested-callbacks: ["error", 4] */
+    // не бейте! Eslint не давал пушить без этого правила(
     it('should log different numbers', done => {
       const result = [];
       const logger = num => result.push(num);
