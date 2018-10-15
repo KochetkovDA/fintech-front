@@ -13,7 +13,6 @@ function getMinMax(string) {
   const result = string.match(reg).sort((a, b) => a - b);
 
   return { min: result[0], max: result[result.length - 1] };
-
 }
 
 /* ============================================= */
@@ -76,13 +75,13 @@ function printNumbers(max, cols) {
     for (let j = 0; j < cols; j++) {
       elem = i + (j * rows);
       if (elem >= max) {
-          return result += `${elem}`.padStart(2);
+        return result += `${elem}`.padStart(2);
       }
       if (j === (cols - 1)) {
-            result += `${elem}`.padStart(2);
-            continue;
-        }
-      result += `${elem}`.padStart(2) +' ';
+        result += `${elem}`.padStart(2);
+        continue;
+      }
+      result += `${elem}`.padStart(2) + ' ';
     }
     result += '\n';
   }
