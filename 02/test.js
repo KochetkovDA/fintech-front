@@ -1,7 +1,7 @@
 const expect = require('expect.js');
 const { timer, customBind, sum, anagram, getUnique, getIntersection, isIsomorphic } = require('./tasks');
 
-describe('Lesson 2', () => {
+xdescribe('Lesson 2', () => {
   describe('timer', () => {
     it('should log different numbers', done => {
       const result = [];

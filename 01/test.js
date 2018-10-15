@@ -7,7 +7,7 @@ const {
   fibonacciWithCache
 } = require('../01/tasks');
 
-describe('Lesson 1', () => {
+xdescribe('Lesson 1', () => {
   describe('task 1 getMinMax', () => {
     it('should normally get numeric values from string', () => {
       expect(
