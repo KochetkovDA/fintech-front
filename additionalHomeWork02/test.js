@@ -1,4 +1,4 @@
-// Type your tests here
+/* eslint max-nested-callbacks: ["error", 4] */
 const expect = require('expect.js');
 const { pickPeaks, whoIsNext } = require('./functions.js');
 
@@ -22,6 +22,16 @@ describe('Lesson 2.5', () => {
   });
 
   describe('function whoIsNext', () => {
+    const queue = ['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'];
 
+    it('should return the first person in queues', () => {
+      expect(whoIsNext(queue, 1)).to.be('Sheldon');
+    });
+    it('should return the first person in queues', () => {
+      expect(whoIsNext(queue, 52)).to.eql('Penny');
+    });
+    it('should return the first person in queues', () => {
+      expect(whoIsNext(queue, 7230702951)).to.eql('Leonard');
+    });
   });
 });
