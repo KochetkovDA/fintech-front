@@ -46,7 +46,6 @@ function pickPeaks(arr) {
   };
 }
 
-
 // Sheldon, Leonard, Penny, Rajesh and Howard are in the queue for a "Double Cola" drink vending machine;
 // there are no other people in the queue. The first one in the queue (Sheldon) buys a can, drinks it and doubles!
 // The resulting two Sheldons go to the end of the queue.
@@ -96,6 +95,9 @@ function whoIsNext(names, r) {
   let i = 0;
   let j = 0;
 
+  if (r <= names.length) {
+    return names[r - 1];
+  }
   while (len < r) {
     len += Math.pow(2, i);
     if (r < len) {
