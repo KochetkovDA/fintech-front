@@ -2,7 +2,7 @@ const expect = require('expect.js');
 const promiseRace = require('./task.js');
 const { delayPromise } = require('../utils.js');
 
-describe('Lesson 3 - task 4', () => {
+xdescribe('Lesson 3 - task 4', () => {
   it('should be rejected if firstly one of the promises was rejected', done => {
     promiseRace([
       delayPromise(Promise.reject('test_error'), 500),
