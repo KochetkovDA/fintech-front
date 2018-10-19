@@ -4,10 +4,8 @@ const { pickPeaks, whoIsNext } = require('./functions.js');
 
 describe('Lesson 2.5', () => {
   describe('function pickPeaks', () => {
-    it('should get the value of peak and pos for one peak', () => {
+    it('should normally get the value of peak and pos', () => {
       expect(pickPeaks([0, 7, 5, 2, 1, 4])).to.eql({ pos: [1], peaks: [7] });
-    });
-    it('should get the value of peak and pos for two peak', () => {
       expect(pickPeaks([0, 7, 6, 1, 7, 0])).to.eql({ pos: [1, 4], peaks: [7, 7] });
     });
     it('should get the value of peak and pos for plateaus peak', () => {
@@ -24,13 +22,10 @@ describe('Lesson 2.5', () => {
   describe('function whoIsNext', () => {
     const queue = ['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'];
 
-    it('should return the first person in queues', () => {
+    it('should normally get the person in queues', () => {
       expect(whoIsNext(queue, 1)).to.be('Sheldon');
-    });
-    it('should return the first person in queues', () => {
+      expect(whoIsNext(queue, 5)).to.be('Howard');
       expect(whoIsNext(queue, 52)).to.eql('Penny');
-    });
-    it('should return the first person in queues', () => {
       expect(whoIsNext(queue, 7230702951)).to.eql('Leonard');
     });
   });
