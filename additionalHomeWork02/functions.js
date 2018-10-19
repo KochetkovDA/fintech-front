@@ -74,7 +74,7 @@ function pickPeaks(arr) {
 //
 // The input data consist of an array which contains at least 1 name, and single integer n.
 //
-// (1 ≤ n ≤ 1000000000).
+// (1≤n≤1000000000).
 //
 // -------------------------
 // ##Output
