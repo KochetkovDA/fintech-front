@@ -13,6 +13,7 @@ function getMinMax(string) {
   const result = string.match(reg).sort((a, b) => a - b);
 
   return { min: result[0], max: result[result.length - 1] };
+
 }
 
 /* ============================================= */
@@ -113,6 +114,7 @@ function rle(input) {
   return result;
 }
 
+
 /*=====  End of РЕЛИЗ  ====== */
 
 /*========================================
@@ -174,3 +176,17 @@ module.exports = {
   guessNumberA,
   guessNumberB
 };
+
+
+/**
+ * Игра продолжается, пока пользователь не угадает. После этого выводит в консоль результат.
+ */
+// function guessNumberA() {}
+
+/**
+ * По завершению игры пользователю предлагается сыграть еще раз. После каждого тура выводится последний и лучший результаты.
+ */
+// function guessNumberB() {}
+
+/* =====  End of НЕ ВОШЛО В РЕЛИЗ  ====== */
+
