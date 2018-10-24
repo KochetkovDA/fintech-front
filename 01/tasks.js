@@ -1,4 +1,4 @@
-/* =============================
+/*= ============================
 =            РЕЛИЗ            =
 ============================= */
 
@@ -13,7 +13,6 @@ function getMinMax(string) {
   const result = string.match(reg).sort((a, b) => a - b);
 
   return { min: result[0], max: result[result.length - 1] };
-
 }
 
 /* ============================================= */
@@ -76,13 +75,13 @@ function printNumbers(max, cols) {
     for (let j = 0; j < cols; j++) {
       elem = i + (j * rows);
       if (elem >= max) {
-          return result += `${elem}`.padStart(2);
+        return result += `${elem}`.padStart(2);
       }
       if (j === (cols - 1)) {
-            result += `${elem}`.padStart(2);
-            continue;
-        }
-      result += `${elem}`.padStart(2) +' ';
+        result += `${elem}`.padStart(2);
+        continue;
+      }
+      result += `${`${elem}`.padStart(2)} `;
     }
     result += '\n';
   }
@@ -114,37 +113,67 @@ function rle(input) {
   return result;
 }
 
+/*= ====  End of РЕЛИЗ  ====== */
+
+/*= =======================================
+=            НЕ ВОШЛО В РЕЛИЗ            =
+======================================== */
+
+/**
+ * Игра "угадайка". Компьютер загадывает случайное целое число от 1 до 100,
+ * пользователь вводит числа в консоль.
+ * На каждое число компьютер отвечает "слишком мало", "слишком много", "в точку!".
+ * Для общения с пользователем используйте window.prompt.
+ */
+
+/**
+ * Игра продолжается, пока пользователь не угадает. После этого выводит в консоль результат.
+ */
+function guessNumberA() {
+  const guessNumber = Math.floor(Math.random() * 100) + 1;
+  let result;
+  let counter = 1;
+
+  result = Number(window.prompt('Какое число я загадал?', ''));
+  while (result !== guessNumber) {
+    counter++;
+    if (result > guessNumber) {
+      result = Number(window.prompt('Слишком много! Попробуй еще раз!', ''));
+      continue;
+    }
+    result = Number(window.prompt('Слишком мало! Попробуй еще раз!', ''));
+  }
+  window.alert('В точку!!!');
+  console.log(counter);
+  return counter;
+}
+/**
+ * По завершению игры пользователю предлагается сыграть еще раз. После каждого тура выводится последний и лучший результаты.
+ */
+function guessNumberB() {
+  let bestAttempt = Infinity;
+  let currentAttempt;
+
+  do {
+    currentAttempt = guessNumberA();
+    if (currentAttempt < bestAttempt) {
+      bestAttempt = currentAttempt;
+      window.alert(`У тебя новый рекорд! Ты угадал за ${bestAttempt} попыток! `);
+    } else {
+      window.alert(`Ты угадал за ${currentAttempt} попыток! Лучший результат: ${bestAttempt} `);
+    }
+  }
+  while (window.confirm('Сыграем еще раз?'));
+}
+
+/*= ====  End of НЕ ВОШЛО В РЕЛИЗ  ====== */
+
 module.exports = {
   getMinMax,
   rle,
   printNumbers,
   fibonacciSimple,
-  fibonacciWithCache
+  fibonacciWithCache,
+  guessNumberA,
+  guessNumberB
 };
-
-/* =====  End of РЕЛИЗ  ====== */
-
-/* ========================================
-=            НЕ ВОШЛО В РЕЛИЗ            =
-======================================== */
-
-// /**
-//  * Игра "угадайка". Компьютер загадывает случайное целое число от 1 до 100,
-//  * пользователь вводит числа в консоль.
-//  * На каждое число компьютер отвечает "слишком мало", "слишком много", "в точку!".
-//  * Для общения с пользователем используйте window.prompt.
-//  */
-
-
-/**
- * Игра продолжается, пока пользователь не угадает. После этого выводит в консоль результат.
- */
-// function guessNumberA() {}
-
-/**
- * По завершению игры пользователю предлагается сыграть еще раз. После каждого тура выводится последний и лучший результаты.
- */
-// function guessNumberB() {}
-
-/* =====  End of НЕ ВОШЛО В РЕЛИЗ  ====== */
-
