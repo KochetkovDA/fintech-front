@@ -18,36 +18,33 @@
 //
 // Have fun!
 
-function pickPeaks(arr){
-    let pos = [],
-        peaks = [],
+function pickPeaks(arr) {
+  const pos = [];
+  const peaks = [];
+  let plat = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] < arr[i]) {
+      if (arr[i + 1] === arr[i]) {
+        plat.push(i);
+      } else if (arr[i + 1] < arr[i]) {
+        pos.push(i);
+        peaks.push(arr[i]);
+      }
+    } else if (plat.length > 0) {
+      if (arr[i + 1] < arr[i]) {
+        pos.push(plat[0]);
+        peaks.push(arr[plat[0]]);
         plat = [];
-
-    for(let i = 1; i < arr.length; i++) {
-        if(arr[i-1] < arr[i]) {
-            if(arr[i+1] === arr[i]) {
-                plat.push(i);
-            } else if(arr[i+1] < arr[i]) {
-                pos.push(i);
-                peaks.push(arr[i]);
-            }
-        } else if(plat.length > 0) {
-            if(arr[i+1] < arr[i]) {
-                pos.push(plat[0]);
-                peaks.push(arr[plat[0]]);
-                plat = [];
-            } else {
-                plat = [];
-            }
-        }
+      }
     }
+  }
 
-    return {
-        pos,
-        peaks,
-    };
+  return {
+    pos,
+    peaks
+  };
 }
-
 
 // Sheldon, Leonard, Penny, Rajesh and Howard are in the queue for a "Double Cola" drink vending machine;
 // there are no other people in the queue. The first one in the queue (Sheldon) buys a can, drinks it and doubles!
@@ -77,7 +74,7 @@ function pickPeaks(arr){
 //
 // The input data consist of an array which contains at least 1 name, and single integer n.
 //
-// (1 ≤ n ≤ 1000000000).
+// (1≤n≤1000000000).
 //
 // -------------------------
 // ##Output
@@ -92,27 +89,30 @@ function pickPeaks(arr){
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 52)=="Penny"
 // whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 7230702951)=="Leonard"
 
-function whoIsNext(names, r){
-    let len = 0,
-        i = 0,
-        j = 0,
-        jMax = names.length - 1;
-    while(len < r) {
-        len = len + Math.pow(2, i);
-        if(r < len) {
-            break;
-        } else if(j < jMax) {
-            j++;
-        } else {
-            j = 0;
-            i++;
-        }
-    }
+function whoIsNext(names, r) {
+  const jMax = names.length - 1;
+  let len = 0;
+  let i = 0;
+  let j = 0;
 
-    return names[j];
+  r--;
+
+  while (len < r) {
+    len += Math.pow(2, i);
+    if (r < len) {
+      break;
+    } else if (j < jMax) {
+      j++;
+    } else {
+      j = 0;
+      i++;
+    }
+  }
+
+  return names[j];
 }
 
 module.exports = {
-    pickPeaks,
-    whoIsNext
+  pickPeaks,
+  whoIsNext
 };
