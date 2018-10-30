@@ -32,13 +32,13 @@ describe('Lesson 2.5', () => {
       });
     });
     describe('custom queue', () => {
-      const queue = ['Sheldon', 'Penny', 'Rajesh', 'Howard'];
+      const customQueue = ['Sheldon', 'Penny', 'Rajesh', 'Howard'];
 
       it('should normally get the person in custom queues', () => {
-        expect(whoIsNext(queue, 1)).to.be('Sheldon');
-        expect(whoIsNext(queue, 7)).to.be('Penny');
-        expect(whoIsNext(queue, 9)).to.be('Rajesh');
-        expect(whoIsNext(queue, 11)).to.eql('Howard');
+        expect(whoIsNext(customQueue, 1)).to.be('Sheldon');
+        expect(whoIsNext(customQueue, 7)).to.be('Penny');
+        expect(whoIsNext(customQueue, 9)).to.be('Rajesh');
+        expect(whoIsNext(customQueue, 11)).to.eql('Howard');
       });
     });
   });
