@@ -20,13 +20,26 @@ describe('Lesson 2.5', () => {
   });
 
   describe('function whoIsNext', () => {
-    const queue = ['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'];
+    describe('standart queue', () => {
+      const queue = ['Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard'];
 
-    it('should normally get the person in queues', () => {
-      expect(whoIsNext(queue, 1)).to.be('Sheldon');
-      expect(whoIsNext(queue, 5)).to.be('Howard');
-      expect(whoIsNext(queue, 52)).to.eql('Penny');
-      expect(whoIsNext(queue, 7230702951)).to.eql('Leonard');
+      it('should normally get the person in queues', () => {
+        expect(whoIsNext(queue, 1)).to.be('Sheldon');
+        expect(whoIsNext(queue, 7)).to.be('Sheldon');
+        expect(whoIsNext(queue, 5)).to.be('Howard');
+        expect(whoIsNext(queue, 52)).to.eql('Penny');
+        expect(whoIsNext(queue, 7230702951)).to.eql('Leonard');
+      });
+    });
+    describe('custom queue', () => {
+      const queue = ['Sheldon', 'Penny', 'Rajesh', 'Howard'];
+
+      it('should normally get the person in custom queues', () => {
+        expect(whoIsNext(queue, 1)).to.be('Sheldon');
+        expect(whoIsNext(queue, 7)).to.be('Penny');
+        expect(whoIsNext(queue, 9)).to.be('Rajesh');
+        expect(whoIsNext(queue, 11)).to.eql('Howard');
+      });
     });
   });
 });

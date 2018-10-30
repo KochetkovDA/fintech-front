@@ -95,9 +95,8 @@ function whoIsNext(names, r) {
   let i = 0;
   let j = 0;
 
-  if (r <= names.length) {
-    return names[r - 1];
-  }
+  r--;
+
   while (len < r) {
     len += Math.pow(2, i);
     if (r < len) {
